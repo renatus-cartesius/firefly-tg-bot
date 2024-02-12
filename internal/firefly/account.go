@@ -50,7 +50,7 @@ type Account struct {
 func (ar *AccountsResponse) String() (res string) {
 	for _, account := range ar.Data {
 		res += "\xF0\x9F\x92\xB3 Аккаунт: " + account.Attributes.Name + "\n"
-		res += "\xF0\x9F\x92\xB5 Баланс: " + account.Attributes.CurrentBalance + account.Attributes.CurrencySymbol + "\n\n"
+		res += "\xF0\x9F\x92\xB5 Баланс: `" + account.Attributes.CurrentBalance + account.Attributes.CurrencySymbol + "`\n\n"
 	}
 	return res
 }
