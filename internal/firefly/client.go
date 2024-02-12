@@ -30,7 +30,7 @@ func (c FireflyClient) GetTransactions() (string, error) {
 }
 
 func (c FireflyClient) GetAccounts() (string, error) {
-	data, err := c.authClient.Get(c.url + "/accounts/1")
+	data, err := c.authClient.Get(c.url + "/accounts")
 	if err != nil {
 		log.Fatalln("Error on making request for Account: err")
 	}
@@ -43,7 +43,7 @@ func (c FireflyClient) GetAccounts() (string, error) {
 }
 
 func (c FireflyClient) GetBudget() (string, error) {
-  data, err := c.authClient.Get(c.url + "/budgets?start=2024-02-01&end=2024-02-29") // TODO: fix to using current month interval after tests
+	data, err := c.authClient.Get(c.url + "/budgets?start=2024-02-01&end=2024-02-29") // TODO: fix to using current month interval after tests
 	if err != nil {
 		log.Fatalln("Error on making request for Account: err")
 	}

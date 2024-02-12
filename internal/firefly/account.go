@@ -5,7 +5,7 @@ import (
 )
 
 type AccountsResponse struct {
-	Data AccountsData `json:"data"`
+	Data []AccountsData `json:"data"`
 }
 
 type AccountsData struct {
@@ -47,8 +47,10 @@ type Account struct {
 	ZoomLevel             interface{} `json:"zoom_level"`
 }
 
-func (ar *AccountsResponse) String() string {
-	res := "\xF0\x9F\x92\xB3 Аккаунт: " + ar.Data.Attributes.Name + "\n"
-	res += "\xF0\x9F\x92\xB5 Баланс: " + ar.Data.Attributes.CurrentBalance + ar.Data.Attributes.CurrencySymbol + "\n"
+func (ar *AccountsResponse) String() (res string) {
+	for _, account := range ar.Data {
+		res += "\xF0\x9F\x92\xB3 Аккаунт: " + account.Attributes.Name + "\n"
+		res += "\xF0\x9F\x92\xB5 Баланс: " + account.Attributes.CurrentBalance + account.Attributes.CurrencySymbol + "\n\n"
+	}
 	return res
 }
