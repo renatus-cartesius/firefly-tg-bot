@@ -3,13 +3,17 @@ package main
 import (
 	"firebot/internal/config"
 	"firebot/internal/firefly"
+	"flag"
 	"log"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 func main() {
-	c, err := config.ReadConfig("../config/firebot.yml")
+	configPath := flag.String("config", "./firebot.yml", "path to config file")
+	flag.Parse()
+
+	c, err := config.ReadConfig(*configPath)
 	if err != nil {
 		panic(err)
 	}
