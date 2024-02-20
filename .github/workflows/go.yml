@@ -32,3 +32,5 @@ jobs:
         push: true
         tags: ghcr.io/renatus-cartesius/firebot:latest
         labels: ${{ steps.meta.outputs.labels }}
+        secrets: |
+          GIT_AUTH_TOKEN=${{ secrets.GHCR_TOKEN }}
