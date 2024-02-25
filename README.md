@@ -19,4 +19,4 @@ firefly:
   token: <firefly api token>
   apiUrl: <firefly api url>
 telegram:
-  token: <telegram bot token>```
+  token: <telegram bot token>
